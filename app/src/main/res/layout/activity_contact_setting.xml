@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactSettingActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/navbar_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/imageButtonList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/button_to_display_a_list_of_contacts"
+            app:srcCompat="@android:drawable/ic_menu_my_calendar"
+            tools:ignore="RedundantDescriptionCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButtonMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/button_to_display_contact_location"
+            app:srcCompat="@android:drawable/ic_menu_mapmode"
+            tools:ignore="RedundantDescriptionCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButtonSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/button_to_display_contact_setting"
+            app:srcCompat="@android:drawable/ic_menu_manage"
+            tools:ignore="RedundantDescriptionCheck" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sort_contacts_by"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSortBy"
+        android:layout_width="112dp"
+        android:layout_height="139dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="TextSizeCheck">
+
+        <RadioButton
+            android:id="@+id/radioButtonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Name" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/city" />
+
+        <RadioButton
+            android:id="@+id/radioButtonBday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewSortOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sort_order"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupSortBy" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSortOrder"
+        android:layout_width="136dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSortOrder"
+        tools:ignore="TextSizeCheck">
+
+        <RadioButton
+            android:id="@+id/radioButtonAscending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ascending" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDescending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radiobutton" />
+
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
