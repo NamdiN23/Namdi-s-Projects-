@@ -11,20 +11,45 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ContactAdapter extends RecyclerView.Adapter {
-    private ArrayList<String> contactData;
+    private ArrayList<Contact> contactData;
+    private View.OnClickListener mOnItemClickListener;
 
     public class ContactViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewContact;
+        public TextView textPhone;
+        public TextView deleteButton;
 
         public ContactViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewContact = itemView.findViewById(R.id.textViewName);
+            textViewContact = itemView.findViewById(R.id.textContactName);
+            textPhone = itemView.findViewById(R.id.textPhoneNumber);
+            deleteButton = itemView.findViewById(R.id.buttonDeleteContact);
+            itemView.setTag(this);
+            itemView.setOnClickListener(mOnItemClickListener);
         }
 
         public TextView getContactTextView() {
             return textViewContact;
         }
+
+        public TextView getPhoneTextView() {
+            return textPhone;
+        }
+
+        public TextView getDeleteButton() {
+            return deleteButton;
+        }
     }
+
+        public ContactAdapter(ArrayList<Contact> arrayList) {
+            contactData = arrayList;
+        }
+
+        public void setOnItemClickListener(View.OnClickListener itemClickListener) {
+            mOnItemClickListener = itemClickListener;
+        }
+
+
 
     @NonNull
     @Override
@@ -38,7 +63,8 @@ public class ContactAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ContactViewHolder cvh = (ContactViewHolder) holder;
-        cvh.getContactTextView().setText(contactData.get(position));
+        cvh.getContactTextView().setText(contactData.get(position).getContactName());
+        cvh.getPhoneTextView().setText(contactData.get(position).getPhoneNumber());
     }
 
     @Override
