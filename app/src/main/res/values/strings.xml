@@ -19,4 +19,7 @@
     <string name="textview">TextView</string>
     <string name="textview2">TextView2</string>
     <string name="textview3">TextView</string>
+    <string name="new">New</string>
+    <string name="delete">Delete</string>
+    <string name="new">New</string>
 </resources>

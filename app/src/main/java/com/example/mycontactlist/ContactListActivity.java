@@ -3,6 +3,7 @@ package com.example.mycontactlist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -56,5 +57,16 @@ public class ContactListActivity extends AppCompatActivity {
         catch (Exception e){
             Toast.makeText(this, "Error retrieving contacts", Toast.LENGTH_SHORT).show();
         }
+        initAdContactButton();
+    }
+    private void initAdContactButton(){
+        Button newContact = findViewById(R.id.buttonAddContact);
+        newContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ContactListActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
