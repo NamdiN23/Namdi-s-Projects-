@@ -109,7 +109,7 @@ public class ContactDataSource {
     public ArrayList<Contact> getContacts(String sortField, String sortOrder){
         ArrayList<Contact> contacts = new ArrayList<Contact>();
         try {
-            String query = "SELECT * FROM contact ORDER BY " + sortField + sortOrder;
+            String query = "SELECT * FROM contact ORDER BY " + sortField + " " + sortOrder;
             Cursor cursor = database.rawQuery(query, null);
 
             Contact newContact;
@@ -122,7 +122,9 @@ public class ContactDataSource {
                 newContact.setCity(cursor.getString(3));
                 newContact.setState(cursor.getString(4));
                 newContact.setZipcode(cursor.getString(5));
-                newContact.setEMail(cursor.getString(6));
+                newContact.setPhoneNumber(cursor.getString(6));
+                newContact.setCellNumber(cursor.getString(7));
+                newContact.setEMail(cursor.getString(8));
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTimeInMillis(Long.valueOf(cursor.getString(9)));
                 newContact.setBirthday(calendar);

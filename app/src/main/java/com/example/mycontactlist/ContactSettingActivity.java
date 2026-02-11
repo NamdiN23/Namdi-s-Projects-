@@ -61,11 +61,7 @@ public class ContactSettingActivity extends AppCompatActivity {
 
     private void initSettingButton() {
         ImageButton IbSet = findViewById(R.id.imageButtonSetting);
-        IbSet.setOnClickListener(view -> {
-            Intent intent = new Intent(ContactSettingActivity.this, ContactSettingActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-        });
+        IbSet.setEnabled(false);
     }
 
     private void initSettings() {
@@ -89,7 +85,7 @@ public class ContactSettingActivity extends AppCompatActivity {
         RadioButton rbAscending = findViewById(R.id.radioButtonAscending);
         RadioButton rbDescending = findViewById(R.id.radioButtonDescending);
 
-        if (sortBy.equalsIgnoreCase("ASC")) {
+        if (sortOrder.equalsIgnoreCase("ASC")) {
             rbAscending.setChecked(true);
         } else {
             rbDescending.setChecked(true);
@@ -108,7 +104,7 @@ public class ContactSettingActivity extends AppCompatActivity {
                 if (rbName.isChecked()) {
                     getSharedPreferences("MyContactListPreferences",
                             Context.MODE_PRIVATE).edit()
-                            .putString("sortfield", "name").apply();
+                            .putString("sortfield", "contactname").apply();
                 } else if (rbCity.isChecked()) {
                     getSharedPreferences("MyContactListPreferences",
                             Context.MODE_PRIVATE).edit()

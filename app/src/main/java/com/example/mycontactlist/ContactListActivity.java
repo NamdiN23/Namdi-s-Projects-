@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -46,9 +47,18 @@ public class ContactListActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        String sortBy = getSharedPreferences("MyContactListPreference",
+        initAddContactButton();
+        initDeleteSwitch();
+        initListButton();
+        initMapButton();
+        initSettingButton();
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        String sortBy = getSharedPreferences("MyContactListPreferences",
                 Context.MODE_PRIVATE).getString("sortfield", "contactname");
-        String sortOrder = getSharedPreferences("MyContactListPreference",
+        String sortOrder = getSharedPreferences("MyContactListPreferences",
                 Context.MODE_PRIVATE).getString("sortorder", "ASC");
         ContactDataSource ds = new ContactDataSource(this);
         try {
@@ -58,19 +68,17 @@ public class ContactListActivity extends AppCompatActivity {
             RecyclerView contactList = findViewById(R.id.rvContacts);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
             contactList.setLayoutManager(layoutManager);
-            ContactAdapter contactAdapter = new ContactAdapter(contacts, this);
+            contactAdapter = new ContactAdapter(contacts, this);
+            contactAdapter.setOnItemClickListener(onItemClickListener);
             contactList.setAdapter(contactAdapter);
         }
         catch (Exception e){
             Toast.makeText(this, "Error retrieving contacts", Toast.LENGTH_SHORT).show();
         }
-        initAddContactButton();
-        initDeleteSwitch();
     }
     private void initAddContactButton(){
         Button newContact = findViewById(R.id.buttonAddContact);
         newContact.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ContactListActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -86,6 +94,27 @@ public class ContactListActivity extends AppCompatActivity {
                 contactAdapter.setDelete(status);
                 contactAdapter.notifyDataSetChanged();
             }
+        });
+    }
+    private void initListButton() {
+        ImageButton IbList = findViewById(R.id.imageButtonList);
+        IbList.setEnabled(false);
+    }
+
+    private void initMapButton() {
+        ImageButton IbMap = findViewById(R.id.imageButtonMap);
+        IbMap.setOnClickListener(view -> {
+            Intent intent = new Intent(ContactListActivity.this, ContactMapActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        });
+    }
+    private void initSettingButton(){
+        ImageButton IbSet = findViewById(R.id.imageButtonSetting);
+        IbSet.setOnClickListener(view->{
+            Intent intent = new Intent(ContactListActivity.this, ContactSettingActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         });
     }
 }
