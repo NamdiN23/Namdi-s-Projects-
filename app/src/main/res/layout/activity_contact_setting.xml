@@ -69,7 +69,7 @@
             android:id="@+id/radioButtonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Name" />
+            android:text="@string/name"/>
 
         <RadioButton
             android:id="@+id/radioButtonCity"

@@ -1,5 +1,6 @@
 package com.example.mycontactlist;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -45,10 +46,14 @@ public class ContactListActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        String sortBy = getSharedPreferences("MyContactListPreference",
+                Context.MODE_PRIVATE).getString("sortfield", "contactname");
+        String sortOrder = getSharedPreferences("MyContactListPreference",
+                Context.MODE_PRIVATE).getString("sortorder", "ASC");
         ContactDataSource ds = new ContactDataSource(this);
         try {
             ds.open();
-            contacts = ds.getContacts();
+            contacts = ds.getContacts(sortBy, sortOrder);
             ds.close();
             RecyclerView contactList = findViewById(R.id.rvContacts);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -76,10 +81,10 @@ public class ContactListActivity extends AppCompatActivity {
         Switch ds = findViewById(R.id.switchDelete);
         ds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
-                Boolean status = compoundButon.isChecked();
+            public void onCheckedChanged(@NonNull CompoundButton compoundButton, boolean isChecked) {
+                Boolean status = compoundButton.isChecked();
                 contactAdapter.setDelete(status);
-                contactAdapter.notifyDataSetChnaged();
+                contactAdapter.notifyDataSetChanged();
             }
         });
     }
