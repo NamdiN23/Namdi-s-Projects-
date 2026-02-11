@@ -20,4 +20,5 @@
     <string name="textview3">TextView</string>
     <string name="new_contact">New Contact</string>
     <string name="delete_contact">Delete Contact</string>
+    <string name="descending">descending</string>
 </resources>
