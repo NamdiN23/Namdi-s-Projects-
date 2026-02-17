@@ -21,4 +21,13 @@
     <string name="new_contact">New Contact</string>
     <string name="delete_contact">Delete Contact</string>
     <string name="descending">descending</string>
+    <string name="get_coordinates">GET COORDINATES</string>
+    <string name="longitude_none">Longitude: None</string>
+    <string name="accuracy_none">Accuracy: None</string>
+    <string name="latitude_none">Latitude: None</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="state">State</string>
+    <string name="enter_street_address">Enter Street Address</string>
+    <string name="address">Address:</string>
+    <string name="my_contact_list">My Contact List</string>
 </resources>

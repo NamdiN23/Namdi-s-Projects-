@@ -108,7 +108,7 @@
                 android:autofillHints=""
                 android:ems="14"
                 android:inputType="textPersonName"
-                android:text="@string/name"
+                android:hint="@string/name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewContact"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -133,7 +133,7 @@
                 android:layout_marginTop="8dp"
                 android:ems="16"
                 android:inputType="text"
-                android:text="Address"
+                android:hint="Address"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewAddress"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -146,7 +146,7 @@
                 android:layout_marginTop="8dp"
                 android:ems="9"
                 android:inputType="text"
-                android:text="City"
+                android:hint="City"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/editTextAddress"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -159,7 +159,7 @@
                 android:layout_marginTop="8dp"
                 android:ems="2"
                 android:inputType="text"
-                android:text="State"
+                android:hint="State"
                 app:layout_constraintStart_toEndOf="@id/editTextCity"
                 app:layout_constraintTop_toBottomOf="@id/editTextAddress"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -172,7 +172,7 @@
                 android:layout_marginTop="8dp"
                 android:ems="5"
                 android:inputType="text"
-                android:text="Zipcode"
+                android:hint="Zipcode"
                 app:layout_constraintStart_toEndOf="@id/editTextState"
                 app:layout_constraintTop_toBottomOf="@id/editTextAddress"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -194,7 +194,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:inputType="text"
-                android:text="Home Phone"
+                android:hint="Home Phone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textHome"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -216,7 +216,7 @@
                 android:layout_marginStart="16dp"
                 android:inputType="text"
                 android:maxLength="14"
-                android:text="Cell Phone"
+                android:hint="Cell Phone"
                 app:layout_constraintStart_toStartOf="@id/textViewCell"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCell"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -239,7 +239,7 @@
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Enter email"
+                android:hint="Enter email"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewEmail"
                 tools:ignore="TouchTargetSizeCheck" />
